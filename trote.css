@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: var(--bg-url);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    color: var(--text-color);
+}
+
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --hightlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/moon-stars.svg)
+}
+
+.claro {
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.2);
+    --switch-bg-url: url(./assets/sun.svg)
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+#container{
+    width: 360px;
+    height: 712px;
+    margin: 50px auto 0px;
+    text-align: center;
+}
+
+#profile img {
+    width: 112px;
+}
+#profile p {
+    font-weight: 500;
+    line-height: 24px;   
+}
+
+#container ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0px;
+}
+
+#container ul li a {
+    display: flex;
+    border: 1px solid var(--stroke-color);
+    align-items: center; 
+    justify-content: center; 
+    padding: 16px 24px; 
+    background: var(--surface-color);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s
+}
+
+#container ul li a:hover {
+    background: var(--surface-color-hover);
+    border: 1px solid rgb(0, 97, 133);
+}
+
+#social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 0px;
+    font-size: 24px;
+}
+
+#social-links a {
+    padding: 16px;
+    border-radius: 50px;
+    transition: background 1.5s;
+}
+
+#social-links a:hover {
+    background: var(--hightlight-color);
+}
+
+footer {
+    padding: 24px 0px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#switch {
+    
+    position: relative;
+    width: 64px; /*limitou o tamanho, logo o btãozinho seguiu e ficou pequeno*/
+    margin: 4px auto; /*4px em cima e embaixo - e vai alinhar a direita e esquerda*/
+}
+
+#switch button {
+    border: 1px solid var(--stroke-color);
+    width: 32px;
+    height: 32px;
+    background: var(--surface-color-hover) var(--switch-bg-url) no-repeat center;
+    border-radius: 50px;
+    position: absolute; /*posicionamento em relação a div switch*/
+    top: 50%; /*pegando o botão, e descendo o tamanho do botão nessa quantidade dentro da div*/
+    left: 0; /**/
+    z-index: 1; /* a maioria dos outros documentos ficam na camada 0 - logo vai ficar em cima*/
+    /*usando o translate, ele serve de deslocamento do elemento baseado nos valores dados tipo animation*/
+    transform: translateY(-50%); /*valor negativo para o elemento ir para subir no Y - deixnado ele dentro do elemento*/
+}
+
+#switch span {
+    border: 1px solid var(--stroke-color);
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border-radius: 9999px;
+}
+
+.claro #switch button{
+    right: 0;
+    left: initial;
+}
